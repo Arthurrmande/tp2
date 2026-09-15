@@ -1,0 +1,25 @@
+import {motion} from "motion/react";
+
+/**
+ * ## Exercice 3 : Interactions (Hover & Tap)
+ * Objectif : Rendre l'interface réactive au curseur et au clic.
+ * - Créer un bouton interactif utilisant `whileHover` et `whileTap`.
+ * - Configurer une transition de type `spring` (ressort) avec `stiffness` et `damping`.
+ * - Utiliser des noms de variants sémantiques (`rest`, `hover`, `tap`).
+ */
+
+const buttonVariants = {
+  rest: { scale: 1, backgroundColor: "#059669" },
+  hover: { scale: 1.1, backgroundColor: "#10B981", transition: { type: "spring", stiffness: 300 } },
+  tap: { scale: 0.9, backgroundColor: "#047857", transition: { type: "spring", stiffness: 300 } },
+};
+
+export default function Exercice3() {
+  return (
+    <motion.div className="flex aspect-square items-center justify-center gap-10 rounded-lg bg-slate-800">
+      <motion.button variants={buttonVariants} whileHover="hover" whileTap="tap" className="w-1/2 cursor-pointer rounded-lg bg-emerald-600 py-4 text-2xl font-light tracking-wide text-gray-100">
+        subscribe
+      </motion.button>
+    </motion.div>
+  );
+}
